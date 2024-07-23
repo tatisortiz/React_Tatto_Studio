@@ -43,7 +43,7 @@ export const Register = () => {
   return (
   
       <div className="register">
-      <div className="register one">
+      <div className="register-container">
         <h1>Register</h1>
         <h2>Create an account or login</h2>
 
