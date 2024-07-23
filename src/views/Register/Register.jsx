@@ -26,15 +26,13 @@ export const Register = () => {
 
         <input
           type="text"
-          name="email"
-          id=""
+          name="email"  
           placeholder="Email"
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
-          id=""
           placeholder="Password"
           onChange={handleChange}
         />
