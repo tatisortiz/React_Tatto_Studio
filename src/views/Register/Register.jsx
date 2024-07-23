@@ -42,7 +42,8 @@ export const Register = () => {
 
   return (
   
-      <div>
+      <div className="register">
+      <div className="register one">
         <h1>Register</h1>
         <h2>Create an account or login</h2>
 
@@ -59,6 +60,7 @@ export const Register = () => {
           onChange={handleChange}
         />
         <input type="button" value="Register" onClick={register} />
+        </div>
       </div>
   );
 };

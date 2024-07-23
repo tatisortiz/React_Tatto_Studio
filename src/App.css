@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  background-color: rgb(192, 197, 255);
+  background-image: url(https://media.istockphoto.com/id/1183435962/es/foto/tatuaje-negro-y-rojo-uno.webp?b=1&s=170667a&w=0&k=20&c=xY4_uRRrmN07ind8zRSJwqIZab2cRAjtMcQ_IAU_f14=); 
+  width: 100vw;
+  height: 100vh;
 }
-

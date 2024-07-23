@@ -15,16 +15,16 @@ export const Services = () => {
     fetchServices();
   }, []);
   return (
-    <div>
+    <div className="services">
       <h1>We offer the following services</h1>
       {services.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <div className="services-collection">
+        <div className="body">
           {services.map((service) => (
-            <div  key={service.id}>
-              <div >{service.serviceName}</div>
-              <div >{service.description}</div>
+            <div className="serviceone" key={service.id}>
+              <div className="servicetitle" >{service.title}</div>
+              <div className="serviciedescription">{service.description}</div>
             </div>
           ))}
         </div>

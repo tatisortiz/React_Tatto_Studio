@@ -1,2 +1,36 @@
 
-  
+.services{
+    text-align: center;
+
+    h1 {
+        font-size: 1.5em;
+        font-weight: lighter;
+        margin-top: 1em;
+    }
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.serviceone {
+    background-color: #221a3a;
+    box-shadow: 0.4em 0.4em 0.8em rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 20em;
+    padding: 1.5em;
+    margin: 1em;
+    text-align: center;
+    border-radius: 1em;
+}
+
+.servicetitle {
+    font-size: 1.2em;
+    margin: 0.4em;
+}
+
+.servicedescription {
+    margin: 0.4em;
+}
