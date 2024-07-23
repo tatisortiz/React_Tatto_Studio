@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../Services/apiCalls";
 
 export const Register = () => {
+  const navigate = useNavigate ()
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -15,6 +18,28 @@ export const Register = () => {
       [e.target.name]: e.target.value,
     }));
   }
+  async function register() {
+		try {
+     
+      const response = await registerUser(credentials)
+
+
+      if(response.success){
+        navigate('/login')
+     } else{
+      alert (response.message)
+
+     }
+
+    } catch (error) {
+			console.log(error);
+		}
+	}
+  
+  
+  
+  
+
 
   console.log(credentials);
 
@@ -36,7 +61,7 @@ export const Register = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <input type="button" value="Register" />
+        <input type="button" value="Register" onClick={register} />
       </div>
   );
 };
