@@ -1,4 +1,6 @@
+import { jwtDecode } from "jwt-decode";
 import React, { useState } from "react";
+import { loginUser } from "../../Services/apiCalls";
 
 export const Login = () => {
 
@@ -8,13 +10,33 @@ export const Login = () => {
     });
 
     function handleChange(e) {
-        console.log("Handle Change");
-
         setCredentials((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
         }));
     }
+     
+    async function login() {
+		try {
+	      const response = await loginUser(credentials)
+
+		  if(response.success){
+	       const decodedToken = jwtDecode(response.token)
+			const passport ={
+				token: response.token,
+				tokenData: decodedToken
+			}
+
+			localStorage.setItem("passport", JSON.stringify(passport))
+	
+		  } else {
+			alert (response.message)
+
+		  }
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 
     return (
@@ -27,7 +49,7 @@ export const Login = () => {
             />
             <input type="password" name="password" placeholder="Password" onChange={handleChange}
             />
-            <input type="button" value="login"  />
+            <input type="button" value="login" onClick={login}  />
         </div>
     );
 };
