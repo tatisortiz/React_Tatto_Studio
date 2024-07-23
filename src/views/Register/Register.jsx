@@ -37,9 +37,6 @@ export const Register = () => {
 	}
   
   
-  
-  
-
 
   console.log(credentials);
 

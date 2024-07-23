@@ -1,8 +1,10 @@
 import { jwtDecode } from "jwt-decode";
 import React, { useState } from "react";
 import { loginUser } from "../../Services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+    const navigate = useNavigate ()
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -28,7 +30,7 @@ export const Login = () => {
 			}
 
 			localStorage.setItem("passport", JSON.stringify(passport))
-	
+	        navigate ('/profile')
 		  } else {
 			alert (response.message)
 
