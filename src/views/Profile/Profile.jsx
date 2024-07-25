@@ -2,104 +2,97 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProfile, updateProfile } from "../../Services/apiCalls";
 import { CInput } from "../../components/CInput/CInput";
+import "./Profile.css"
 
-
-
-
-export const Profile= () => {
-   const [profileData, setProfileData ]= useState({
+export const Profile = () => {
+  const [profileData, setProfileData] = useState({
     name: "",
     email: "",
-    
-   });
-   const [editData, setEditData] = useState({
+  });
+  const [editData, setEditData] = useState({
     name: "",
     email: "",
-   });
+  });
 
-   const [editting, setEditting] = useState(false);
-   const passport = JSON.parse(localStorage.getItem("passport"))
+  const [editting, setEditting] = useState(false);
+  const passport = JSON.parse(localStorage.getItem("passport"));
   
-   const navigate = useNavigate()
-   const token = passport.token
+  const navigate = useNavigate();
+  const token = passport?.token;
 
-   
-   useEffect( ()=> {
-    if(!passport){
-    navigate("/login",)
+  useEffect(() => {
+    if (!passport) {
+      navigate("/login");
+    } else {
+      const bringMyProfile = async () => {
+        const response = await getProfile(passport.token);
+        setProfileData(response.data);
+      }
+      bringMyProfile();
     }
-    else {
-        const bringMyProfile = async () => {
-        const response = await getProfile(passport.token)
-        setProfileData (response.data)
-          console.log(response)
-        }
-        bringMyProfile()
-     }
-   }, []);
-    
-   const editButtonHandler = () => {
+  }, [passport, navigate]);
+
+  const editButtonHandler = () => {
     setEditData({
       name: profileData.name,
       email: profileData.email
-    })
+    });
     setEditting(!editting);
-   };
+  };
 
-   const editInputHandler = (e) => {
+  const editInputHandler = (e) => {
     setEditData({
       ...editData,
       [e.target.name]: e.target.value,
     });
-    
-   };
+  };
 
-   const confirmButtonHandler = async () =>{
-    const response = await updateProfile(editData,token)
-   }
+  const confirmButtonHandler = async () => {
+    const response = await updateProfile(editData, token);
+    if (response.status === 200) {
+      setProfileData(editData);
+      setEditting(false);
+    }
+  };
 
- 
-    
-     return (
-    <>
-     <h2>profile</h2>
-     <p className= {editting ? "hidden" : ""}>
-      Name:{profileData.name ? profileData.name : "not available" } </p>
+  return (
+    <div className="profile">
+      <h2>Profile</h2>
+      <p className={editting ? "hidden" : ""}>
+        Name: {profileData.name ? profileData.name : "not available"}
+      </p>
       <CInput
         type="text"
         name="name"
         placeholder="name"
         className={editting ? "" : "hidden"}
         emitFunction={editInputHandler}
+        value={editData.name}
       />
-    
-     
-     <p className={editting ? "hidden" : ""}>
-      Email:{profileData.email} </p>
-      < CInput
+      <p className={editting ? "hidden" : ""}>
+        Email: {profileData.email}
+      </p>
+      <CInput
         type="email"
         name="email"
-        placeholder={editData.email}
+        placeholder="email"
         className={editting ? "" : "hidden"}
         emitFunction={editInputHandler}
+        value={editData.email}
       />
       <CInput
         type="button"
         name="edit"
-        value={editting ? "cancel" : "edit" }
+        value={editting ? "cancel" : "edit"}
         emitOnClickButton={editButtonHandler}
       />
-
-<CInput
+      <CInput
         type="button"
-        name="edit"
+        name="save"
         value="save"
-        className={editting ? "" : "hidden" }
+        className={editting ? "" : "hidden"}
         emitOnClickButton={confirmButtonHandler}
       />
-
-   
-    </>
-  )
-}
-
+    </div>
+  );
+};
