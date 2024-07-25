@@ -7,6 +7,7 @@ export const Register = () => {
   const navigate = useNavigate ()
   const [credentials, setCredentials] = useState({
     email: "",
+    name: "",
     password: "",
   });
 
@@ -46,6 +47,12 @@ export const Register = () => {
       <div className="register-container">
         <h1>Register</h1>
         <h2>Create an account or login</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="name"
+          onChange={handleChange}
+        />
 
         <input
           type="text"
@@ -59,6 +66,7 @@ export const Register = () => {
           placeholder="Password"
           onChange={handleChange}
         />
+        
         <input type="button" value="Register" onClick={register} />
         </div>
       </div>

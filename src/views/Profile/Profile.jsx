@@ -8,6 +8,7 @@ export const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     email: "",
+    
   });
   const [editData, setEditData] = useState({
     name: "",
