@@ -29,9 +29,45 @@ export const loginUser = async (credentials) => {
     return result;
 
 }
+export const getServices = async () => {
+    const response = await fetch(`${URL}/api/services`);
+    return await response.json();
+  };
 
 export const getProfile = async (token) => {
     const response = await fetch(`${URL}/api/users/profile`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+             "Authorization":  `Bearer ${token}`
+        },
+  
+    });
+
+    return await response.json();
+    
+ 
+
+}
+
+ export const updateProfile = async (data,token) => {
+    const response = await fetch(`${URL}/api/users/profile`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+           "Authorization":  `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+  
+    });
+
+    return await response.json()
+
+
+ }
+
+ export const getAllUsers = async (token) => {
+    const response = await fetch(`${URL}/api/users`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -44,4 +80,15 @@ export const getProfile = async (token) => {
     
  
 
+}
+
+export const deleteUserById = async (token,id) => {
+    const response = await fetch(`${URL}/api/users/profile${id}`,{
+        method: "DELETE",
+        headers :{
+            "Content-Type": "application/json",
+             "Authorization": `Bearer ${token}`
+        }
+    })
+    return await response.json()
 }

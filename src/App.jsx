@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Body } from "./views/Body/Body";
@@ -9,6 +9,7 @@ function App() {
 		<BrowserRouter>
 			<Header />
 			<Body />
+			<Link/>
 			</BrowserRouter>
           
 		</>
