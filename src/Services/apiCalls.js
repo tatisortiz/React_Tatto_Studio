@@ -29,6 +29,10 @@ export const loginUser = async (credentials) => {
     return result;
 
 }
+export const getServices = async () => {
+    const response = await fetch(`${URL}/api/services`);
+    return await response.json();
+  };
 
 export const getProfile = async (token) => {
     const response = await fetch(`${URL}/api/users/profile`, {
