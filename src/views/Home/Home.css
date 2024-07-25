@@ -1,1 +1,55 @@
+.homebody {
+    height: 50vh;
+    width: 60vw;
 
+    background-color: #cc2424;
+    color: rgb(231, 215, 215);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2em;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.title {
+    height: 25vh;
+    width: 100%;
+    margin-top: 1.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "notable", sans-serif;
+    font-size: 3.3em;
+    color: #eaead6;
+    text-align: center;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;  /* Ajusta el ancho según tus necesidades */
+
+    margin: 1.5em;
+}
+
+.text-container {
+    background-color: white;
+    color: black;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
