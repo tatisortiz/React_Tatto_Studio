@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Service.css"
 
 export const Services = () => {
   const [services, setServices] = useState([]);
@@ -15,7 +16,7 @@ export const Services = () => {
     fetchServices();
   }, []);
   return (
-    <div className="services">
+    <div className="service">
       <h1>We offer the following services</h1>
       {services.length === 0 ? (
         <p>Loading...</p>
@@ -24,7 +25,7 @@ export const Services = () => {
           {services.map((service) => (
             <div className="serviceone" key={service.id}>
               <div className="servicetitle" >{service.title}</div>
-              <div className="serviciedescription">{service.description}</div>
+              <div className="servicedescription">{service.description}</div>
             </div>
           ))}
         </div>

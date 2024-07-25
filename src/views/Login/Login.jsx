@@ -1,9 +1,8 @@
-
-import { loginUser } from "../../Services/apiCalls";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { loginUser } from "../../Services/apiCalls";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -20,7 +19,7 @@ export const Login = () => {
         }));
     }
 
-    async function login() {
+    const loginButton = async () => {
         try {
             const response = await loginUser(credentials);
 
@@ -58,7 +57,7 @@ export const Login = () => {
                     placeholder="Password"
                     onChange={handleChange}
                 />
-                <input type="button" value="login" onClick={login} />
+                <input type="button" value="login" onClick={loginButton} />
             </div>
         </div>
     );
