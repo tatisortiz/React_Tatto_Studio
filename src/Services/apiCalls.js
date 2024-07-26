@@ -22,7 +22,7 @@ export const loginUser = async (credentials) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(credentials),
-    });
+    },);
 
     const result = await request.json();
     
@@ -91,4 +91,20 @@ export const deleteUserById = async (token,id) => {
         }
     })
     return await response.json()
+}
+
+export const getAllAppointmens = async (token) => {
+    const response = await fetch(`${URL}/api/appointments`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+             "Authorization": `Bearer ${token}`
+        },
+  
+    });
+
+    return await response.json();
+    
+ 
+
 }

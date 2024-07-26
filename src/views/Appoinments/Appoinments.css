@@ -1,0 +1,51 @@
+/* Estilos para el contenedor principal de la aplicación */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Estilo para el título principal */
+  .app h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el contenedor de las citas */
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Estilo para cada cita individual */
+  .appoone {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px;
+    background-color: #8b1010;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para los detalles de cada cita */
+  .appoint1 {
+    font-size: 16px;
+    color: #1d1a1a;
+  }
+  
+  .appoint {
+    font-size: 16px;
+    color: #1d1a1a;
+  }
+  /* Estilo para los detalles importantes de las citas */
+  .appoint:first-child {
+    font-weight: bold;
+    color: #000;
+  }
+  

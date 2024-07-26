@@ -2,11 +2,11 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Register } from '../Register/Register.jsx'
 import { Home } from '../Home/Home.jsx'
-import { Appoinments } from '../Appoinments/Appoinments.jsx'
 import { Profile } from '../Profile/Profile.jsx'
 import { Login } from '../Login/Login.jsx'
 import { Admin } from '../Admin/Admin.jsx'
 import { Services } from '../Services/Services.jsx'
+import { Appointments } from '../Appoinments/Appoinments.jsx'
 
 
 
@@ -18,7 +18,7 @@ export const Body = () => {
   if (passport) {
     role = passport.tokenData.role_id;
   }
-  console.log(role)
+ 
 
   return (
     <>
@@ -28,7 +28,7 @@ export const Body = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/services" element={< Services />} />
-        <Route path="/appointments" element={<Appoinments />} />
+        <Route path="/appointments" element={<Appointments />} />
         <Route path="/profile" element={<Profile />} />
        
         {  role === 2 && 

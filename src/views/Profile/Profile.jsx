@@ -8,11 +8,15 @@ export const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     email: "",
+    // password: "",
+   
     
   });
   const [editData, setEditData] = useState({
     name: "",
     email: "",
+    // // password: "",
+    
   });
 
   const [editting, setEditting] = useState(false);
@@ -36,7 +40,9 @@ export const Profile = () => {
   const editButtonHandler = () => {
     setEditData({
       name: profileData.name,
-      email: profileData.email
+      email: profileData.email,
+      // email: profileData.password,
+      
     });
     setEditting(!editting);
   };
@@ -50,7 +56,7 @@ export const Profile = () => {
 
   const confirmButtonHandler = async () => {
     const response = await updateProfile(editData, token);
-    if (response.status === 200) {
+    if (response.success) {
       setProfileData(editData);
       setEditting(false);
     }
@@ -70,17 +76,30 @@ export const Profile = () => {
         emitFunction={editInputHandler}
         value={editData.name}
       />
-      <p className={editting ? "hidden" : ""}>
+         <p className={editting ? "hidden" : ""}>
         Email: {profileData.email}
       </p>
-      <CInput
-        type="email"
+
+       <CInput
+        type="text"
         name="email"
         placeholder="email"
         className={editting ? "" : "hidden"}
         emitFunction={editInputHandler}
         value={editData.email}
       />
+    
+      {/* {<CInput
+        type="password"
+        name="password" 
+        placeholder="password"
+        className={editting ? "" : "hidden"}
+        emitFunction={editInputHandler}
+        value={editData.passport}
+      /> } */}
+      
+   
+    
       <CInput
         type="button"
         name="edit"
