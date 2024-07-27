@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { createAppointments } from "../../Services/apiCalls";
 import "./CreateAppoint.css";
+import { useNavigate } from "react-router-dom";
 
-export const CreateAppoint = () => {
+const CreateAppoint = () => {
+  const navigate = useNavigate();
+
   const [newAppointment, setNewAppointment] = useState({
     appointment_date: "",
     service_id: "",
@@ -29,6 +32,8 @@ export const CreateAppoint = () => {
           appointment_date: "",
           service_id: "",
         });
+        // Redirige a '/appointuser' después de la creación exitosa
+        navigate('/appointuser');
       }
     } catch (error) {
       console.log(error);
