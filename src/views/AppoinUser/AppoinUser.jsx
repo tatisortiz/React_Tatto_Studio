@@ -2,83 +2,75 @@ import React, { useEffect, useState } from "react";
 import "./AppoinUser.css";
 import { deleteAppointmentById, getMyAppointments } from "../../Services/apiCalls";
 
-const formatDate = (isoDate) => {
-  const date = new Date(isoDate);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
 export const AppointUser = () => {
   const [appointments, setAppointments] = useState([]);
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const passport = JSON.parse(localStorage.getItem("passport"));
 
   useEffect(() => {
     const fetchAppointments = async () => {
-      if (passport && passport.token) {
-        try {
-          const response = await getMyAppointments(passport.token);
-          if (response.success) {
-            setAppointments(response.data);
-            setMessage("Appointments loaded successfully");
-          } else {
-            setError("Failed to load appointments");
-          }
-        } catch (error) {
-          setError("An error occurred while fetching appointments");
+      if (!passport || !passport.token) {
+        setErrorMessage("Usuario no autenticado");
+        return;
+      }
+
+      try {
+        const response = await getMyAppointments(passport.token);
+        if (response.success && response.data.length > 0) {
+          setAppointments(response.data);
+        } else {
+          setErrorMessage("No hay citas disponibles");
         }
-      } else {
-        setError("User not authenticated");
+      } catch (error) {
+        setErrorMessage("Ocurrió un error al obtener las citas");
       }
     };
 
     fetchAppointments();
   }, [passport]);
 
-  const handleDeleteAppointment = async (id) => {
+  const deleteApptHandler = async (e) => {
+    const id = +e.target.name;
+
     try {
-      const response = await deleteAppointmentById(id, passport.token);
+      const response = await deleteAppointmentById(passport.token, id);
       if (response.success) {
         setAppointments((prevAppointments) =>
-          prevAppointments.filter((appointment) => appointment.id !== id)
+          prevAppointments.filter((appt) => appt.id !== id)
         );
-        setMessage("Appointment deleted successfully");
       } else {
-        setError("Failed to delete appointment");
+        setErrorMessage("No se pudo eliminar la cita");
       }
     } catch (error) {
-      setError("An error occurred while deleting the appointment");
+      setErrorMessage("Ocurrió un error al eliminar la cita");
     }
   };
 
   return (
     <div className="myappointment-box">
-      <h2>My Appointments</h2>
-      {message && <p className="success-message">{message}</p>}
-      {error && <p className="error-message">{error}</p>}
+      <h2>Mis Citas</h2>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       {appointments.length > 0 ? (
         appointments.map((appointment) => (
           <div className="appointments-info" key={appointment.id}>
-            <div className="date">{formatDate(appointment.appointment_date)}</div>
+            <div className="date">{appointment.appointment_date}</div>
             <div className="service">{appointment.service_id}</div>
             <div className="cancel">
-              <button onClick={() => handleDeleteAppointment(appointment.id)}>
-                Delete
-              </button>
+              <input
+                type="button"
+                value="Eliminar"
+                name={appointment.id}
+                onClick={deleteApptHandler}
+              />
             </div>
           </div>
         ))
       ) : (
-        <p>No appointments found.</p>
+        !errorMessage && <p>No tienes citas.</p>
       )}
     </div>
   );
 };
 
 export default AppointUser;
-

@@ -10,6 +10,7 @@ export const CInput = (
     emitOnClickButton,
     className,
     min,
+    disabled,
     value,
     label
   } 
@@ -27,6 +28,7 @@ export const CInput = (
         className={className}
         min={min}
         onClick={emitOnClickButton}
+        disabled={disabled}
         value={value}
       />    
     </>

@@ -44,7 +44,7 @@ export const Admin = () => {
           <div className="content">id</div>
           <div className="content">email</div>
           <div className="content">active</div>
-          <div className="content">actions</div>
+          <div className="content">eliminate</div>
         </div>
         {users.length &&
           users.map((user) => {
