@@ -93,7 +93,27 @@ export const deleteUserById = async (token,id) => {
     return await response.json()
 }
 
-export const getAllAppointmens = async (token) => {
+export const createAppointments = async (credentials) => {
+    try {
+        const request = await fetch(`${URL}/api/appointments`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(credentials),
+        });
+        const result = await request.json();
+        return result;
+    } catch (error) {
+
+    }
+}
+
+
+
+
+export const getMyAppointments = async (token) => {
     const response = await fetch(`${URL}/api/appointments`, {
         method: "GET",
         headers: {
@@ -108,3 +128,14 @@ export const getAllAppointmens = async (token) => {
  
 
 }
+export const deleteAppointmentById = async (token, id) => {
+    const response = await fetch(`${URL}/api/appointments/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  
+    return await response.json();
+  };

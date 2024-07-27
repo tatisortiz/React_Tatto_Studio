@@ -7,6 +7,8 @@ import { Login } from '../Login/Login.jsx'
 import { Admin } from '../Admin/Admin.jsx'
 import { Services } from '../Services/Services.jsx'
 import { Appointments } from '../Appoinments/Appoinments.jsx'
+import { CreateAppoint } from '../CreateAppoint/CreateAppoint.jsx'
+import { AppointUser } from '../AppoinUser/AppoinUser.jsx'
 
 
 
@@ -30,6 +32,8 @@ export const Body = () => {
         <Route path="/services" element={< Services />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/createapp" element={<CreateAppoint />} />
+        <Route path="/appointuser" element={<AppointUser/>} />
        
         {  role === 2 && 
         <Route path="/admin" element={<Admin/>}/>

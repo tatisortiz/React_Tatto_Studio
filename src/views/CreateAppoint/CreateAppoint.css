@@ -1,0 +1,35 @@
+.bookappointment-page {
+    display: flex;
+    justify-content: center;
+}
+
+  .bookappointment-box {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0.4em 0.4em 0.8em rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33em;
+    height: auto;
+    margin-top: 2em;
+    margin-left: -1em;
+    padding: 3em;
+    border-radius: 2em;
+  }
+
+  .bookappointment-box > button {
+    margin-top: 1em;
+    width: 19em;
+    padding: 0.65em;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1.3em;
+  }
+
+  .bookappointment-box > button:hover {
+    background-color: #45a049;
+  }

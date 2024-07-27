@@ -9,6 +9,7 @@ export const CInput = (
     emitFunction,
     emitOnClickButton,
     className,
+    min,
     value,
     label
   } 
@@ -24,6 +25,7 @@ export const CInput = (
         placeholder={placeholder} 
         onChange={emitFunction}
         className={className}
+        min={min}
         onClick={emitOnClickButton}
         value={value}
       />    
