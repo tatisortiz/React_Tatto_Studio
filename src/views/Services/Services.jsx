@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Service.css"
 import { getServices } from "../../Services/apiCalls";
+import "./Service.css"
 
 
-export const service = () => {
+export const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {

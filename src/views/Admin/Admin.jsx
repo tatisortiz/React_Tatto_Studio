@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteUserById, getAllUsers } from "../../Services/apiCalls";
 import "./Admin.css";
+import { CInput } from "../../components/CInput/CInput";
 
 
 export const Admin = () => {
@@ -55,7 +56,7 @@ export const Admin = () => {
                   {user.is_active ? "active" : "inactive"}
                 </div>
                 <div className="content">
-                  <CInput
+                  < CInput
                     type="button"
                     name={user.id}
                     value="🛇"
