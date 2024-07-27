@@ -2,6 +2,11 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 export const Header = () => {
+    const passport = JSON.parse(localStorage.getItem("passport"));
+    const logOut = () => {
+        localStorage.removeItem("passport");
+        navigate("/login");
+      };
     return (
         <header className="header">
             <NavLink to="/" className="nav-link">Home</NavLink>
@@ -10,6 +15,7 @@ export const Header = () => {
             <NavLink to="/services" className="nav-link">Services</NavLink>
             <NavLink to="/appointments" className="nav-link">Appointments</NavLink>
             <NavLink to="/admin" className="nav-link">Admin</NavLink>
+            <NavLink to="/login" onClick={logOut}>Logout</NavLink>
         </header>
     );
 };
