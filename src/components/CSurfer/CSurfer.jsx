@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-export const Surfer = ({ classAdd ,content, path}) => {
+export const CSurfer = ({ classAdd ,content, path}) => {
     const navigate = useNavigate();
     return (
         <>

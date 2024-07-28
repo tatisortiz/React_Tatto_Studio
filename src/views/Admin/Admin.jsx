@@ -11,7 +11,6 @@ export const Admin = () => {
   const passport = JSON.parse(localStorage.getItem("passport"));
   const token = passport.token;
   const navigate = useNavigate()
-  navigate("/admin")
 
   useEffect(() => {
     const bringAllUsers = async () => {
@@ -20,9 +19,11 @@ export const Admin = () => {
       if (allUsers.success) {
         setUsers(allUsers.data);
       }
+      navigate("/admin")
     };
     bringAllUsers();
-  }, []);
+  }, [token]);
+
 
   const deleteUserHandler = async (e) => {
     const id = +e.target.name;
@@ -41,7 +42,7 @@ export const Admin = () => {
 
   return (
     <>
-      <h1>Admin</h1>
+      <h1 className="h1">all users</h1>
       <div className="users-container">
         <div className="table-row">
           <div className="content">id</div>
