@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { deleteUserById, getAllUsers } from "../../Services/apiCalls";
 import "./Admin.css";
 import { CInput } from "../../components/CInput/CInput";
+import { useNavigate } from "react-router-dom";
 
 
 export const Admin = () => {
@@ -9,6 +10,8 @@ export const Admin = () => {
 
   const passport = JSON.parse(localStorage.getItem("passport"));
   const token = passport.token;
+  const navigate = useNavigate()
+  navigate("/admin")
 
   useEffect(() => {
     const bringAllUsers = async () => {
