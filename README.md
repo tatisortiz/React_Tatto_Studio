@@ -76,34 +76,41 @@ Users will be able to:
 
  ## Views
  ### Home
+
  <img src="./img/Captura de pantalla (58).png">
 
  
 ### Register
-<a href="">
-<img src ="./img/captura de pantalla (56).png">
+
+<img src="./img/Captura de pantalla (56).png">
 
 
 ### Login 
-<img src ="./img/captura de pantalla (57).png">
+
+<img src="./img/Captura de pantalla (57).png">
 
 
 ### Profile
-<img src ="./img/captura de pantalla (59).png">
+
+<img src="./img/Captura de pantalla (59).png">
 
 ### Update Profile
-<img src ="./img/captura de pantalla (60).png">
+
+<img src="./img/Captura de pantalla (60).png">
 
 
 ### Services
-<img src ="./img/captura de pantalla (55).png">
+
+<img src="./img/Captura de pantalla (55).png">
 
 ### Appointments
-<img src ="./img/captura de pantalla (54).png">
+
+<img src="./img/Captura de pantalla (54).png">
 
 
 ### Admin
-<img src ="./img/captura de pantalla (61).png">
+
+<img src="./img/Captura de pantalla (61).png">
 
 
 
