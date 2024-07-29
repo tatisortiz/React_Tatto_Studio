@@ -6,6 +6,7 @@ This project was made as part of a course Full Stack Developer for GeeksHubs Aca
 
 - [Assignment](#assignment-)
 - [Stack](#stack)
+- [Views](#views)
 - [Local Installation](#local-installation-️)
 - [Points of Improvement](#points-of-improvement)
 
@@ -72,6 +73,38 @@ Users will be able to:
     <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="Gi" />
 </a>
  </div>
+
+ ## Views
+ ### Home
+ <img src="./img/Captura de pantalla (58).png">
+
+ 
+### Register
+<img src ="./img/captura de pantalla (56).png">
+
+
+### Login 
+<img src ="./img/captura de pantalla (57).png">
+
+
+### Profile
+<img src ="./img/captura de pantalla (59).png">
+
+### Update Profile
+<img src ="./img/captura de pantalla (60).png">
+
+
+### Services
+<img src ="./img/captura de pantalla (55).png">
+
+### Appointments
+<img src ="./img/captura de pantalla (54).png">
+
+
+### Admin
+<img src ="./img/captura de pantalla (61).png">
+
+
 
 ## Local installation 🛠️
 

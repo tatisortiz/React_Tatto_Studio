@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import "./Services.css"
 import { getServices } from "../../Services/apiCalls";
-import "./Service.css"
+
 
 
 export const Services = () => {
@@ -28,7 +29,7 @@ export const Services = () => {
         <div className="body">
           {services.map((service) => (
             <div className="serviceone" key={service.id}>
-              <div className="servicetitle" >{service.title}</div>
+              <div className="servicetitle">{service.title}</div>
               <div className="servicedescription">{service.description}</div>
             </div>
           ))}

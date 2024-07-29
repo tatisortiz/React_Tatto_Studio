@@ -1,0 +1,96 @@
+.appointments-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #e3e3e3;
+    min-height: 100vh;
+   background-image: url(https://media.istockphoto.com/id/1183435962/es/foto/tatuaje-negro-y-rojo-uno.webp?b=1&s=170667a&w=0&k=20&c=xY4_uRRrmN07ind8zRSJwqIZab2cRAjtMcQ_IAU_f14=);
+}
+
+.appointment-creation, .appointments-list {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-creation h2, .appointments-list h2 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #333;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: #343a40;
+    color: white;
+}
+
+.table thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.table tbody td {
+    padding: 10px;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

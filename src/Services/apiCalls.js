@@ -33,7 +33,6 @@ export const getServices = async () => {
     const response = await fetch(`${URL}/api/services`);
     return await response.json();
   };
-
 export const getProfile = async (token) => {
     const response = await fetch(`${URL}/api/users/profile`, {
         method: "GET",
@@ -129,7 +128,7 @@ export const getMyAppointments = async (token) => {
 
 }
 export const deleteAppointmentById = async (token, id) => {
-    const response = await fetch(`${URL}/api/appointments/${id}`, {
+    const response = await fetch(`${URL}/api/appointments/${+id}`, {
       method: "DELETE",
       headers: {
         "content-Type": "application/json",
