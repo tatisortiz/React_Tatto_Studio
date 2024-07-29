@@ -80,6 +80,7 @@ Users will be able to:
 
  
 ### Register
+<a href="">
 <img src ="./img/captura de pantalla (56).png">
 
 
