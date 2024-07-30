@@ -33,10 +33,6 @@ export const Appointments = () => {
     const handleSendAppointment = async () => {
         try {
             const response = await createAppointments(newAppointment, passport.token);
-            console.log(newAppointment)
-            console.log(passport.token)
-            console.log("llega aquii abraham no se duerma")
-            console.log(response)
             if (response.success) {
             console.log(response)
                 setMyAppointments([...myAppointments, response.data]);
