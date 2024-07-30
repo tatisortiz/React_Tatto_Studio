@@ -92,7 +92,7 @@ export const deleteUserById = async (token,id) => {
     return await response.json()
 }
 
-export const createAppointments = async (credentials) => {
+export const createAppointments = async (credentials, token) => {
     try {
         const request = await fetch(`${URL}/api/appointments`, {
             method: "POST",
