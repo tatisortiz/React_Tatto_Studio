@@ -15,6 +15,7 @@ export const Appointments = () => {
     const todayString = new Date().toISOString().split("T")[0];
 
     const formatDate = (isoDate) => {
+        console.log(isoDate)
         const appDate = new Date(isoDate);
         return appDate.toLocaleDateString("en-US", {
             year: "numeric",
@@ -33,6 +34,7 @@ export const Appointments = () => {
     const handleSendAppointment = async () => {
         try {
             const response = await createAppointments(newAppointment, passport.token);
+            console.log(newAppointment)
             if (response.success) {
             console.log(response)
                 setMyAppointments([...myAppointments, response.data]);
@@ -47,16 +49,23 @@ export const Appointments = () => {
     };
 
     useEffect(() => {
+    
         if (!passport) {
             navigate("/login");
             return;
         }
         const bringMyAppointments = async () => {
             try {
+        
                 const response = await getMyAppointments(passport.token);
+                console.log(response)
                 if (response.success && Array.isArray(response.data)) {
+                
                     setMyAppointments(response.data);
-                } else {
+                  
+                }
+                 else {
+                    console.log(response.data)
                     setMyAppointments([]);
                 }
             } catch (error) {
@@ -64,7 +73,9 @@ export const Appointments = () => {
             }
         };
         bringMyAppointments();
-    }, [passport, navigate]);
+    }, []);
+ 
+    console.log(myAppointments.services)
 
     const deleteAppointmentHandler = async (e) => {
         const id = +e.target.name;
@@ -103,6 +114,7 @@ export const Appointments = () => {
                             onChange={(e) => inputHandler(e)}
                             className="form-control"
                         >
+                        
                             <option value="" disabled hidden>
                                 Select a service...
                             </option>

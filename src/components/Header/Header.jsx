@@ -12,7 +12,7 @@ export const Header = () => {
         if (role === 2) {
             navigate("/admin");
         }
-    }, [role, navigate]);
+    }, []);
 
     const logOut = () => {
         localStorage.removeItem("passport");

@@ -82,7 +82,8 @@ export const getProfile = async (token) => {
 }
 
 export const deleteUserById = async (token,id) => {
-    const response = await fetch(`${URL}/api/users/profile${id}`,{
+    console.log(id)
+    const response = await fetch(`${URL}/api/users/profile/${id}`,{
         method: "DELETE",
         headers :{
             "Content-Type": "application/json",
